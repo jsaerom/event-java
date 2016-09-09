@@ -61,32 +61,32 @@ class Event {
     } else if (mNumOfGuest > 200 && mNumOfGuest <=250){
       mCost += (mNumOfGuest * 3.5);
     }
-    if (mFood.equals("No Food")){
+    if (mFood.equalsIgnoreCase("No Food")){
       mCost += 0;
-    } else if (mFood.equals("Finger Food")){
+    } else if (mFood.equalsIgnoreCase("Finger Food")){
       mCost += (10 * mNumOfGuest);
-    } else if (mFood.equals("Tapas")){
+    } else if (mFood.equalsIgnoreCase("Tapas")){
       mCost += (15 * mNumOfGuest);
     }
-    if (mDrink.equals("No Drinks")){
+    if (mDrink.equalsIgnoreCase("No Drinks")){
       mCost += 0;
-    } else if (mDrink.equals("Nonalcoholic")){
+    } else if (mDrink.equalsIgnoreCase("Nonalcoholic")){
       mCost += (3 * mNumOfGuest);
-    } else if (mDrink.equals("Full Bar")){
+    } else if (mDrink.equalsIgnoreCase("Full Bar")){
       mCost += (10 * mNumOfGuest);
     }
-    if (mVenue.equals("Bar")){
+    if (mVenue.equalsIgnoreCase("Bar")){
       mCost += (100 * mHours);
-    } else if (mVenue.equals("Conference Room")){
+    } else if (mVenue.equalsIgnoreCase("Conference Room")){
       mCost += (55 * mHours);
-    } else if (mVenue.equals("Ballroom")){
+    } else if (mVenue.equalsIgnoreCase("Ballroom")){
       mCost += (150 * mHours);
     }
-    if (mMusic.equals("No Music")){
+    if (mMusic.equalsIgnoreCase("No Music")){
       mCost += 0;
-    } else if (mMusic.equals("Live Band")){
+    } else if (mMusic.equalsIgnoreCase("Live Band")){
       mCost += (125 * mHours);
-    } else if (mMusic.equals("DJ")){
+    } else if (mMusic.equalsIgnoreCase("DJ")){
       mCost += (100 * mHours);
     }
     if (mHost == true){

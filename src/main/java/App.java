@@ -18,7 +18,7 @@ public class App {
     System.out.println("Would you like a host to run the event? Yes or No");
     String stringInputHost = myConsole.readLine();
     boolean inputHost = false;
-    if (stringInputHost.equals("Yes")){
+    if (stringInputHost.equalsIgnoreCase("Yes")){
       inputHost = true;
     } else {
       inputHost = false;
@@ -38,5 +38,6 @@ public class App {
     System.out.println("Music option: " + newEvent.getMusic());
     System.out.println("Would you like a host? " + stringInputHost);
     System.out.println("Your event will be for " + inputHours + " hours");
+    System.out.println("If you're interested in booking this event, please contact us at 123-456-7890. Have a wonderful day!");
   }
 }
