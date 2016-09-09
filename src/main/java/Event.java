@@ -1,13 +1,14 @@
 class Event {
-  private String mNumOfGuest;
+  private int mNumOfGuest;
   private String mFood;
   private String mDrink;
   private String mVenue;
   private String mMusic;
   private boolean mHost;
   private int mHours;
+  private int mCost;
 
-  public Event(String guest, String food, String drink, String venue, String music, boolean host, int hours) {
+  public Event(int guest, String food, String drink, String venue, String music, boolean host, int hours) {
     mNumOfGuest = guest;
     mFood = food;
     mDrink = drink;
@@ -15,9 +16,10 @@ class Event {
     mMusic = music;
     mHost = host;
     mHours = hours;
+    mCost = 0;
   }
 
-  public String getNumOfGuest(){
+  public int getNumOfGuest(){
     return mNumOfGuest;
   }
 
@@ -37,58 +39,61 @@ class Event {
     return mMusic;
   }
 
-  public boolean getHost(){
-    return mHost;
-  }
-
   public int getHours(){
     return mHours;
   }
 
+  public int getCost(){
+    return mCost;
+  }
+
+  public boolean getHost(){
+    return mHost;
+  }
+
   public int calculateCost() {
-    int total = 0;
-    if (mNumOfGuest == "0-50"){
-      total += 300;
-    } else if (mNumOfGuest == "51-100"){
-      total += 400;
-    } else if (mNumOfGuest == "101-150"){
-      total += 450;
-    } else if (mNumOfGuest == "151-200"){
-      total += 500;
+    if (mNumOfGuest >= 0 && mNumOfGuest <=100){
+      mCost += (mNumOfGuest * 2);
+    } else if (mNumOfGuest > 100 && mNumOfGuest <=150){
+      mCost += (mNumOfGuest * 2.5);
+    } else if (mNumOfGuest > 150 && mNumOfGuest <=200){
+      mCost += (mNumOfGuest * 3);
+    } else if (mNumOfGuest > 200 && mNumOfGuest <=250){
+      mCost += (mNumOfGuest * 3.5);
     }
-    if (mFood == "No Food"){
-      total += 0;
-    } else if (mFood == "Finger Food"){
-      total += 50;
-    } else if (mFood == "Tapas"){
-      total += 75;
+    if (mFood.equals("No Food")){
+      mCost += 0;
+    } else if (mFood.equals("Finger Food")){
+      mCost += (10 * mNumOfGuest);
+    } else if (mFood.equals("Tapas")){
+      mCost += (15 * mNumOfGuest);
     }
-    if (mDrink == "No Drinks"){
-      total += 0;
-    } else if (mDrink == "Nonalcoholic"){
-      total += 50;
-    } else if (mDrink == "Full Bar"){
-      total += 200;
+    if (mDrink.equals("No Drinks")){
+      mCost += 0;
+    } else if (mDrink.equals("Nonalcoholic")){
+      mCost += (3 * mNumOfGuest);
+    } else if (mDrink.equals("Full Bar")){
+      mCost += (10 * mNumOfGuest);
     }
-    if (mVenue == "Bar"){
-      total += (100 * mHours);
-    } else if (mVenue == "Conference Room"){
-      total += (55 * mHours);
-    } else if (mVenue == "Ballroom"){
-      total += (150 * mHours);
+    if (mVenue.equals("Bar")){
+      mCost += (100 * mHours);
+    } else if (mVenue.equals("Conference Room")){
+      mCost += (55 * mHours);
+    } else if (mVenue.equals("Ballroom")){
+      mCost += (150 * mHours);
     }
-    if (mMusic == "No Music"){
-      total += 0;
-    } else if (mMusic == "Live Band"){
-      total += (125 * mHours);
-    } else if (mMusic == "DJ"){
-      total += (100 * mHours);
+    if (mMusic.equals("No Music")){
+      mCost += 0;
+    } else if (mMusic.equals("Live Band")){
+      mCost += (125 * mHours);
+    } else if (mMusic.equals("DJ")){
+      mCost += (100 * mHours);
     }
     if (mHost == true){
-      total += (60 * mHours);
+      mCost += (60 * mHours);
     } else {
-      total += 0;
+      mCost += 0;
     }
-    return total;
+    return mCost;
   }
 }
